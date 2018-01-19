@@ -6,7 +6,7 @@ import java.util.Stack;
  * @Author: 于新泽
  * @Date: Created in 12:06 2018/1/19.
  * @site :
- * 设计一个有getMin 功能的栈（士★☆☆☆）31
+ * 设计一个有getMin 功能的栈（士★☆☆☆）1
  * 栈和队列题目共10道题，此为第一题（1/10），练习第一次（1/10)
  */
 
