@@ -115,5 +115,17 @@ public class GetMinStack_01_01_01 {
         System.out.println(stack1.getMin());
         System.out.println(stack1.pop());
         System.out.println(stack1.getMin());
+
+        System.out.println("=============");
+
+        MyStack1 stack2 = new MyStack1();
+        stack2.push(3);
+        System.out.println(stack2.getMin());
+        stack2.push(4);
+        System.out.println(stack2.getMin());
+        stack2.push(1);
+        System.out.println(stack2.getMin());
+        System.out.println(stack2.pop());
+        System.out.println(stack2.getMin());
     }
 }
