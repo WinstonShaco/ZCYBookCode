@@ -4,32 +4,32 @@ import java.util.Stack;
 
 /**
  * @Author: 于新泽
- * @Date: Created in 18:04 2018/1/19.
+ * @Date: Created in 19:13 2018/1/19.
  * @site :
- * 由两个栈组成的队列（尉★★☆☆）5
- * 栈和队列题目共10道题，此为第二题（2/10），练习第一次（1/10)
+ *  * 由两个栈组成的队列（尉★★☆☆）5
+ * 栈和队列题目共10道题，此为第二题（2/10），练习第一次（2/10)
  */
 
-public class TwoStackImplementQueue01_02_01 {
+public class TwoStackImplementQueue01_02_02 {
 
-    public static class TwoStackQueue{
+    public static class TwoStacksQueue {
         public Stack<Integer> stackPush;
         public Stack<Integer> stackPop;
 
-        public TwoStackQueue(){
-            stackPush = new Stack<Integer>();
+        public TwoStacksQueue(){
             stackPop = new Stack<Integer>();
+            stackPush = new Stack<Integer>();
         }
 
-        public void add (int pushInt){
+        public void add(int pushInt){
             stackPush.push(pushInt);
         }
 
         public int poll(){
             if(stackPop.empty() && stackPush.empty()){
-                throw new RuntimeException("Queue is empty!");
+                throw new RuntimeException("Queue is empty.");
             }else if(stackPop.empty()){
-                while(!stackPush.empty()){
+                while (!stackPush.empty()){
                     stackPop.push(stackPush.pop());
                 }
             }
@@ -38,7 +38,7 @@ public class TwoStackImplementQueue01_02_01 {
 
         public int peek(){
             if(stackPop.empty() && stackPush.empty()){
-                throw new RuntimeException("Queue is empty");
+                throw new RuntimeException("Queue ie empty.");
             }else if(stackPop.empty()){
                 while(!stackPush.empty()){
                     stackPop.push(stackPush.pop());
@@ -49,12 +49,16 @@ public class TwoStackImplementQueue01_02_01 {
     }
 
     public static void main(String[] args) {
-        TwoStackQueue test = new TwoStackQueue();
+        TwoStacksQueue test = new TwoStacksQueue();
         test.add(1);
         test.add(2);
         test.add(3);
         test.add(4);
         test.add(5);
+        test.add(6);
+        test.add(7);
+        test.add(8);
+
         System.out.println(test.peek());
         System.out.println(test.poll());
         System.out.println(test.peek());
@@ -63,5 +67,17 @@ public class TwoStackImplementQueue01_02_01 {
         System.out.println(test.poll());
         System.out.println(test.peek());
         System.out.println(test.poll());
+        System.out.println(test.peek());
+        System.out.println(test.poll());
+        System.out.println(test.peek());
+        System.out.println(test.poll());
+        System.out.println(test.peek());
+        System.out.println(test.poll());
+        System.out.println(test.peek());
+        System.out.println(test.poll());
+
+
+
+
     }
 }
