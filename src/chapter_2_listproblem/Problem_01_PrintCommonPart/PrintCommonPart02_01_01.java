@@ -1,4 +1,4 @@
-package chapter_2_listproblem.Problem_01_PrintCommonPart.java;
+package chapter_2_listproblem.Problem_01_PrintCommonPart;
 
 /**
  * @Author: 于新泽
