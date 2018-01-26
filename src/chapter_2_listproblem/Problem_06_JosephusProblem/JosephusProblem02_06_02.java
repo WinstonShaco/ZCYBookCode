@@ -2,12 +2,12 @@ package chapter_2_listproblem.Problem_06_JosephusProblem;
 
 /**
  * @Author: 于新泽
- * @Date: Created in 11:42 2018/1/26.
+ * @Date: Created in 16:38 2018/1/26.
  * @site :
  * 环形单项链表的约瑟夫环问题（士★☆☆☆，校★★★☆）43
  */
 
-public class JosephusProblem02_06_01 {
+public class JosephusProblem02_06_02 {
 
     public static class Node{
         int value;
@@ -17,14 +17,8 @@ public class JosephusProblem02_06_01 {
         }
     }
 
-    /**
-     * 原问题
-     * @param head ：环形单项链表
-     * @param m ：第m个数出链
-     * @return
-     */
-    public static Node josephusKill1(Node head,int m){
-        if(head == null || head.next == head || m < 1){
+    public static Node josephusKill1(Node head , int m){
+        if(head == null || head.next == null || m < 1){
             return head;
         }
         Node last = head;
@@ -44,40 +38,34 @@ public class JosephusProblem02_06_01 {
         return head;
     }
 
-    public static Node josephuskill2(Node head,int m){
-        if(head == null || head.next == head || m < 1){
+    public static Node josephusKill2(Node head, int m){
+        if(head == null || head.next == null || m < 1){
             return head;
         }
         Node cur = head.next;
-        int tmp = 1;//记录链表的长度
+        int tmp = 1;
         while(cur != head){
             tmp++;
             cur = cur.next;
         }
-        tmp = getLive(tmp,m);
-        while(--tmp != 0){
+        tmp = getLive(tmp ,m);
+        while (--tmp != 0){
             head = head.next;
         }
         head.next = head;
         return head;
     }
 
-    /**
-     *
-     * @param i ：一共有i个节点
-     * @param m : 第m个节点出链表
-     * @return
-     */
-    public static int getLive(int i,int m){
+    public static int getLive(int i ,int  m){
         if(i == 1){
             return 1;
         }
         return (getLive(i - 1,m) + m - 1) % i + 1;
     }
 
-    public static void printCircularList(Node head){
+    public static void printCricularList(Node head){
         if(head == null){
-            return ;
+            return;
         }
         System.out.print("Circular List: " + head.value + " ");
         Node cur = head.next;
@@ -136,12 +124,12 @@ public class JosephusProblem02_06_01 {
 
 
 
-//        printCircularList(n1);
-//        n1 = josephusKill1(n1,3);
-//        printCircularList(n1);
+        printCricularList(n1);
+        n1 = josephusKill1(n1,3);
+        printCricularList(n1);
 
-//        printCircularList(n1);
+//        printCricularList(n1);
 //        n1 = josephuskill2(n1,3);
-//        printCircularList(n1);
+//        printCricularList(n1);
     }
 }
