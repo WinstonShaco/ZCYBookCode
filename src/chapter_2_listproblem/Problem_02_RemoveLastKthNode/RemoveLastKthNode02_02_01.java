@@ -91,7 +91,7 @@ public class RemoveLastKthNode02_02_01 {
     }
 
     public static void printDoubleLinkedList(DoubleNode head){
-        System.out.println("Double Linked List: ");
+        System.out.println(" : ");
         DoubleNode end = null;
         while(head != null){
             System.out.print(head.value + " ");
