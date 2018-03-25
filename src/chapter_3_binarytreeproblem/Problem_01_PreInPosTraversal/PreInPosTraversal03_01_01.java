@@ -106,5 +106,35 @@ public class PreInPosTraversal03_01_01 {
         System.out.println();
     }
 
-
+    /**
+     * 后序遍历（用两个栈）
+     * 1.先申请一个栈，记为s1，然后将头结点head压入s1中。
+     * 2.从s1中弹出的结点记为cur，然后依次将cur的左孩子和右孩子压入s1中
+     * 3.在整个过程中，每个从s1中弹出的结点都放进s2中。
+     * 4.不断重复步骤2和步骤3，直到s1为空，过程停止。
+     * 从s2中依次弹出结点并打印，打印的顺序就是后序遍历的顺序。
+     * @param head
+     */
+    public static void posOrderUnRecur1(Node head){
+        System.out.print("pos-order: ");
+        if(head != null){
+            Stack<Node> s1 = new Stack<Node>();
+            Stack<Node> s2 = new Stack<Node>();
+            s1.push(head);
+            while(!s1.isEmpty()){
+                head = s1.pop();
+                s2.push(head);
+                if(head.left != null){
+                    s1.push(head.left);
+                }
+                if(head.right != null){
+                    s1.push(head.right);
+                }
+            }
+            while(!s2.isEmpty()){
+                System.out.print(s2.pop().value + " ");
+            }
+        }
+        System.out.println();
+    }
 }
