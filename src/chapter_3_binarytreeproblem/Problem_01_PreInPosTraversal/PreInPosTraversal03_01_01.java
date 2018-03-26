@@ -70,7 +70,7 @@ public class PreInPosTraversal03_01_01 {
             stack.add(head);
             while(!stack.isEmpty()){
                 head = stack.pop();
-                System.out.print(head.value);
+                System.out.print(head.value + " ");
                 if(head.right != null)
                     stack.push(head.right);
                 if(head.left != null)
@@ -136,5 +136,73 @@ public class PreInPosTraversal03_01_01 {
             }
         }
         System.out.println();
+    }
+
+
+    /**
+     * 后序遍历（用一个栈）
+     * 1.申请一个栈，记为一个stack，将头节点压入stack，同时设置两个变量h和c。在整个流程中，h代表最近一次弹出并打印的结点，
+     * c代表stack的栈顶结点，初始值h为头结点，c为null。
+     * 2.每次令c等于当前stack的栈顶结点，但是不从stack中弹出，此时分为以下三种情况
+     * ①如果c的左孩子不为null，并且h不等于c的左孩子，也不等于c的右孩子，则把c的左孩子压入stack中。具体解释一下这么做的原
+     * 因，首先h的意义是最近一次弹出并打印的结点，所以如果h等于c等于左孩子或者右孩子，说明c的左子树与右子树已经打印完毕，
+     * 此时不应该再将c的左孩子放入stack中。否则，说明左子树还没有处理过，那么此时c的左孩子压入stack中。
+     * ②如果条件①不成立，并且c的右孩子不为null，h不等于c的右孩子，则把c的右孩子压入stack中。含义是如果h等于c的右孩子
+     * 说明c的右子树已经打印完毕，此时不应该再将c的右孩子放入stack中，否则，说明右子树还没有处理过，此时将c的右孩子压入
+     * stack中。
+     * ③如果条件①和条件②都不成立，说明c的左子树和右子树都已经打印完毕，那么从stack中弹出c并打印，然后令h=c
+     * 3.一直重复步骤2，直到stack为空，过程停止。
+     * @param h
+     */
+    public static void posOrderUnRecur2(Node h){
+        System.out.print("pos-order: ");
+        if(h != null){
+            Stack<Node> stack = new Stack<Node>();
+            stack.push(h);
+            Node c = null;
+            while(!stack.isEmpty()){
+                c = stack.peek();
+                if(c.left != null && h != c.left && h != c.right){
+                    stack.push(c.left);
+                } else if (c.right != null && h != c.right){
+                    stack.push(c.right);
+                } else {
+                    System.out.print(stack.pop().value + " ");
+                    h = c;
+                }
+            }
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Node head = new Node(5);
+        head.left = new Node(3);
+        head.right = new Node(8);
+        head.left.left = new Node(2);
+        head.left.right = new Node(4);
+        head.left.left.left = new Node(1);
+        head.right.left = new Node(7);
+        head.right.left.left = new Node(6);
+        head.right.right = new Node(10);
+        head.right.right.left = new Node(9);
+        head.right.right.right = new Node(11);
+        // recursive
+        System.out.println("==============recursive==============");
+        System.out.print("pre-order: ");
+        preOrderRecur(head);
+        System.out.println();
+        System.out.print("in-order: ");
+        inOrderRecur(head);
+        System.out.println();
+        System.out.print("pos-order: ");
+        posOrderRecur(head);
+        System.out.println();
+        // unrecursive
+        System.out.println("============unrecursive=============");
+        preOrderUnRecur(head);
+        inOrderUnRecur(head);
+        posOrderUnRecur1(head);
+        posOrderUnRecur2(head);
     }
 }
