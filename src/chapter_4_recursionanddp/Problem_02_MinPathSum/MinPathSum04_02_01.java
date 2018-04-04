@@ -8,7 +8,7 @@ package chapter_4_recursionanddp.Problem_02_MinPathSum;
  * 递归和动态规划共17道题，此题为第2题，练习第一次
  */
 
-public class MinPathSum04_01_01 {
+public class MinPathSum04_02_01 {
 
     /**
      * 经典的解法 动态规划

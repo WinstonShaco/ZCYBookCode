@@ -34,4 +34,11 @@ public class CoinsMin04_03_01 {
         }
         return dp[n - 1][aim] != max ? dp[n - 1][aim] : -1;
     }
+    public static void main(String[] args) {
+        int[] arr1 = { 6, 10 };
+        int aim1 = 36;
+        System.out.println(minCoins1(arr1, aim1));
+
+
+    }
 }
