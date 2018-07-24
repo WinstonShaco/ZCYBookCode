@@ -16,6 +16,11 @@ public class CoinsMin04_03_01 {
         int n = arr.length;
         int max = Integer.MAX_VALUE;
         int[][] dp = new int[n][aim + 1];
+        /**
+         * 在第一列中赋值
+         * 表示在只有arr[0]面值货币的情况下各个数对应的纸币张数，一直到给出的值加一。
+         * 其余位都为0
+         */
         for(int j = 1;j <= aim;j++){
             dp[0][j] = max;
             if(j - arr[0] >= 0 && dp[0][j - arr[0]] != max){
@@ -23,6 +28,9 @@ public class CoinsMin04_03_01 {
             }
         }
         int left = 0;
+        /**
+         * 根据二维数组的{1,1}（横坐标，纵坐标为0为没有计算意义）
+         */
         for(int i = 1;i < n;i++){
             for(int j = 1;j <= aim;j++){
                 left = max;
