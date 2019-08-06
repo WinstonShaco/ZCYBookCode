@@ -2,63 +2,46 @@ package chapter_2_listproblem.Problem_16_ListSelectionSort;
 
 /**
  * @Author: 于新泽
- * @Date: Created in 2019/5/23 10:32
- * @site : 单链表的选择排序（士★☆☆☆）79
+ * @Date: Created in 2019/5/24 09:35
+ * @site :单链表的选择排序（士★☆☆☆）79
  * @Description :
  */
-public class ListSelectionSort02_16_01 {
+public class ListSelectionSort02_16_02 {
 
     public static class Node {
-        public int value;
-        public Node next;
+        int value;
+        Node next;
 
-        public Node(int data){
+        public Node (int data) {
             this.value = data;
         }
     }
 
-    /**
-     * 排序
-     * @param head ：链表头节点
-     * @return ：输出链表
-     */
-    public static Node selectionSort(Node head){
-        Node tail = null; // 排序部分的尾部
-        Node cur = head; // 未排序部分的头部
-        Node smallPre = null; // 最小节点的前序节点
-        Node small = null; // 最小的节点
 
-        // 每次把最小的值放到最后
-        while(cur != null) {
+    public static Node selectionSort (Node head){
+
+        Node tail = null;
+        Node cur = head;
+        Node smallPre = null;
+        Node small = null;
+
+        while (cur != null) {
             small = cur;
-            smallPre = getSmallestPreNode(cur);
-            if (smallPre != null){
-                small = smallPre.next;
-                smallPre.next = small.next;
+            smallPre = getSmallestPreNode (cur);
+            if (smallPre != null) {
+
             }
-            cur = cur == small ? cur.next : cur;
-            if (tail == null) {
-                head = small;
-            } else {
-                tail.next = small;
-            }
-            tail = small;
         }
         return head;
     }
 
-    /**
-     *  获得最小节点的前序节点
-     * @param head ：链表首节点
-     * @return ： 前序节点
-     */
-    public static Node getSmallestPreNode (Node head){
+    public static Node getSmallestPreNode (Node head) {
+
         Node smallPre = null;
         Node small = head;
-        // pre 和 cur 可视为绑定在一起
         Node pre = head;
         Node cur = head.next;
-        // 找到最小的节点值
+
         while (cur != null) {
             if (cur.value < small.value) {
                 smallPre = pre;
@@ -71,10 +54,9 @@ public class ListSelectionSort02_16_01 {
     }
 
     /**
-     *  输出
-     * @param head
+     * 打印输出单向列表
      */
-    public static void printLinkedList(Node head) {
+    public static void printLinkedList (Node head) {
         System.out.print("Linked List: ");
         while (head != null) {
             System.out.print(head.value + " ");
