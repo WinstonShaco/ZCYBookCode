@@ -1,8 +1,5 @@
 package chapter_3_binarytreeproblem.Problem_02_PrintEdgeNodes;
 
-import sun.net.www.protocol.http.HttpURLConnection;
-import sun.plugin2.message.GetAppletMessage;
-
 /**
  * @Author: 于新泽
  * @Date: Created in 2019/8/6 14:43
