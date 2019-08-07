@@ -9,7 +9,7 @@ import java.util.Stack;
  * 由两个栈组成的队列（尉★★☆☆）5
  */
 
-public class TwoStackImplemenetQueue01_02_03 {
+public class TwoStackImplementQueue01_02_03 {
 
     public static class TwoStacksQueue{
         public Stack<Integer> stackPush;
