@@ -43,7 +43,6 @@ public class AllNumbersSum05_02_01 {
                 }
             } else {
                 num = num * 10 + (posi ? cur : -cur);
-                System.out.println( num + " ");
             }
         }
         res += num;
